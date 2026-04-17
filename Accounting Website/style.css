@@ -1,0 +1,127 @@
+* { box-sizing: border-box; }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 15px;
+        background: #f5f7fb;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .top-inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .top-inputs div {
+        flex: 1;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #4a6cf7;
+        color: white;
+        font-size: 14px;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .role-cell {
+        font-weight: 600;
+    }
+
+    .total-row {
+        background: #eef2ff;
+        font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+        .top-inputs {
+            flex-direction: column;
+        }
+
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        thead {
+            display: none;
+        }
+
+        tr {
+            margin-bottom: 10px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 10px;
+        }
+
+        td {
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+        }
+
+        td::before {
+            font-weight: bold;
+        }
+
+        td:nth-child(1)::before { content: "Role"; }
+        td:nth-child(2)::before { content: "No."; }
+        td:nth-child(3)::before { content: "Rate"; }
+        td:nth-child(4)::before { content: "Amount"; }
+    }
+
+.btn {
+    background: #4a6cf7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    background: #3a55d1;
+}
