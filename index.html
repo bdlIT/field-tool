@@ -14,8 +14,63 @@
 <!-- jsPDF CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
 </head>
 <body>
+
+    <!-- ================= HERO SECTION ================= -->
+<section class="hero">
+
+    <div class="hero-text">
+        <h1>Blesces Health Services</h1>
+        <p>
+            Providing reliable, mobile medical diagnostics and field laboratory services
+            across schools, companies, and institutions.
+        </p>
+    </div>
+
+    <!-- IMAGE SLIDER -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="1.jpg">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="2.jpg">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="3.jpg">
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= FIELD PROJECT GALLERY ================= -->
+<section class="gallery">
+
+    <h1>Field Projects</h1>
+    <p>On-site laboratory testing and medical missions across institutions</p>
+
+    <div class="grid">
+
+        <img src="1.jpg">
+        <img src="2.jpg">
+        <img src="3.jpg">
+        <img src="4.jpg">
+
+    </div>
+
+</section>
 
 <div class="container">
     <h2>Field Computation Tool</h2>
@@ -23,11 +78,11 @@
     <div class="top-inputs">
         <div>
             <label>Pax</label>
-            <input type="number" name="pax">
+            <input type="number" name="pax" oninput="autoStaffing()">
         </div>
         <div>
             <label>Hours</label>
-<input type="number" name="hours" value="8" oninput="recomputeAll()">        </div>
+<input type="number" name="hours" value="8">        </div>
     </div>
 <button onclick="downloadPDF()" class="btn">Download PDF</button>
     <table>
@@ -36,6 +91,7 @@
                 <th>Staff</th>
                 <th>No.</th>
                 <th>Rate</th>
+                <th>Overtime</th>
                 <th>Amount</th>
             </tr>
         </thead>
@@ -46,6 +102,7 @@
     <td class="role-cell">Medical Technologist</td>
     <td><input type="number" id="no_1" oninput="compute(1)"></td>
     <td><input type="number" id="rate_1" oninput="compute(1)"></td>
+    <td><input type="number" id="ot_1" oninput="compute(1)"></td>
     <td><input type="number" id="amount_1" readonly></td>
 </tr>
 
@@ -53,6 +110,7 @@
     <td class="role-cell">Team Leader</td>
     <td><input type="number" id="no_2" oninput="compute(2)"></td>
     <td><input type="number" id="rate_2" oninput="compute(2)"></td>
+    <td><input type="number" id="ot_2" oninput="compute(2)"></td>
     <td><input type="number" id="amount_2" readonly></td>
 </tr>
 
@@ -60,6 +118,7 @@
     <td class="role-cell">Encoder</td>
     <td><input type="number" id="no_3" oninput="compute(3)"></td>
     <td><input type="number" id="rate_3" oninput="compute(3)"></td>
+    <td><input type="number" id="ot_3" oninput="compute(3)"></td>
     <td><input type="number" id="amount_3" readonly></td>
 </tr>
 
@@ -67,6 +126,7 @@
     <td class="role-cell">Radiologic Technologist</td>
     <td><input type="number" id="no_4" oninput="compute(4)"></td>
     <td><input type="number" id="rate_4" oninput="compute(4)"></td>
+    <td><input type="number" id="ot_4" oninput="compute(4)"></td>
     <td><input type="number" id="amount_4" readonly></td>
 </tr>
 
@@ -74,6 +134,7 @@
     <td class="role-cell">ASC</td>
     <td><input type="number" id="no_5" oninput="compute(5)"></td>
     <td><input type="number" id="rate_5" oninput="compute(5)"></td>
+    <td><input type="number" id="ot_5" oninput="compute(5)"></td>
     <td><input type="number" id="amount_5" readonly></td>
 </tr>
 
@@ -81,6 +142,7 @@
     <td class="role-cell">Nurse</td>
     <td><input type="number" id="no_6" oninput="compute(6)"></td>
     <td><input type="number" id="rate_6" oninput="compute(6)"></td>
+    <td><input type="number" id="ot_6" oninput="compute(6)"></td>
     <td><input type="number" id="amount_6" readonly></td>
 </tr>
 
@@ -88,6 +150,7 @@
     <td class="role-cell">Receptionist</td>
     <td><input type="number" id="no_7" oninput="compute(7)"></td>
     <td><input type="number" id="rate_7" oninput="compute(7)"></td>
+    <td><input type="number" id="ot_7" oninput="compute(7)"></td>
     <td><input type="number" id="amount_7" readonly></td>
 </tr>
 
@@ -95,6 +158,7 @@
     <td class="role-cell">Driver</td>
     <td><input type="number" id="no_8" oninput="compute(8)"></td>
     <td><input type="number" id="rate_8" oninput="compute(8)"></td>
+    <td><input type="number" id="ot_8" oninput="compute(8)"></td>
     <td><input type="number" id="amount_8" readonly></td>
 </tr>
 
@@ -102,6 +166,7 @@
     <td class="role-cell">Commission</td>
     <td><input type="number" id="no_9" oninput="compute(9)"></td>
     <td><input type="number" id="rate_9" oninput="compute(9)"></td>
+    <td>-</td>
     <td><input type="number" id="amount_9" readonly></td>
 </tr>
 
@@ -109,11 +174,12 @@
     <td class="role-cell">Gasoline</td>
     <td><input type="number" id="no_10" oninput="compute(10)"></td>
     <td><input type="number" id="rate_10" oninput="compute(10)"></td>
+    <td>-</td>
     <td><input type="number" id="amount_10" readonly></td>
 </tr>
 
 <tr class="total-row">
-    <td colspan="3">TOTAL</td>
+    <td colspan="4">TOTAL</td>
     <td><input type="number" id="grand_total" readonly></td>
 </tr>
 
@@ -121,6 +187,15 @@
 
     </table>
 </div>
+
+<script>
+var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+        delay: 2500,
+    },
+});
+</script>
 
 </body>
 </html>
