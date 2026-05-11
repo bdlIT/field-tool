@@ -150,6 +150,53 @@ tr:hover {
 .btn:hover {
     background: #3a55d1;
 }
+@media (max-width: 768px) {
+
+    /* overall spacing */
+    .container {
+        padding: 15px;
+    }
+
+    /* make header smaller */
+    h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* top inputs stack properly */
+    .top-inputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-inputs div {
+        width: 100%;
+    }
+
+    /* BUTTON full width for mobile */
+    .btn {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* TABLE WRAPPER (IMPORTANT FIX) */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    /* keep table usable instead of breaking layout */
+    tr:hover {
+        background: transparent;
+    }
+}
+
 
 
 
